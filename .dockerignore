@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+dist
+.git
+.gitignore
+.env
+.env.local
+.env*.local
+.env.example
+*.log
+.DS_Store
+README.md
+drizzle
+*.tsbuildinfo

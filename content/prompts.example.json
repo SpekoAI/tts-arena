@@ -1,0 +1,190 @@
+{
+  "$comment": "Seed input for scripts/seed.ts. `systems` declares the competitors (one row per provider+model+optional voice). `prompts` are the texts read aloud, scoped per language and tagged by category. The seed script renders the cross-product (system x prompt within a language) into `samples`, then generates every cross-system pair. Audio file resolution is described in audioNaming + README. Categories: general | conversational | news | narration | hard. Set isGold:true on a prompt to mark it for attention-check duty.",
+
+  "audioNaming": {
+    "$comment": "How scripts/seed.ts maps a (systemId, promptId) sample to a public GCS object key, appended to GCS_PUBLIC_BASE_URL. Default convention used by the seeder: `<language>/<systemId>/<promptKey>.<ext>`. promptKey is the prompt's `key` field if present, else a slug of its text.",
+    "ext": "mp3",
+    "template": "{language}/{systemId}/{promptKey}.{ext}"
+  },
+
+  "systems": [
+    {
+      "id": "openai-tts1-alloy",
+      "vendor": "OpenAI",
+      "modelName": "tts-1",
+      "modelVersion": "2024-04",
+      "voiceLabel": "alloy",
+      "isOpenSource": false,
+      "homepageUrl": "https://platform.openai.com/docs/guides/text-to-speech",
+      "supportedLangs": ["en", "es"]
+    },
+    {
+      "id": "elevenlabs-multi2-rachel",
+      "vendor": "ElevenLabs",
+      "modelName": "eleven_multilingual_v2",
+      "modelVersion": "v2",
+      "voiceLabel": "Rachel",
+      "isOpenSource": false,
+      "homepageUrl": "https://elevenlabs.io",
+      "supportedLangs": ["en", "es"]
+    },
+    {
+      "id": "cartesia-sonic2-default",
+      "vendor": "Cartesia",
+      "modelName": "sonic-2",
+      "modelVersion": "2025-01",
+      "voiceLabel": "Sonic English",
+      "isOpenSource": false,
+      "homepageUrl": "https://cartesia.ai",
+      "supportedLangs": ["en", "es"]
+    },
+    {
+      "id": "kokoro-v1-af",
+      "vendor": "Kokoro",
+      "modelName": "kokoro-82m",
+      "modelVersion": "v1",
+      "voiceLabel": "af",
+      "isOpenSource": true,
+      "homepageUrl": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "supportedLangs": ["en"]
+    }
+  ],
+
+  "prompts": [
+    {
+      "language": "en",
+      "key": "en-general-01",
+      "text": "The morning light slipped through the curtains and woke the whole house.",
+      "category": "general"
+    },
+    {
+      "language": "en",
+      "key": "en-general-02",
+      "text": "She kept a small garden behind the kitchen, mostly herbs and one stubborn tomato plant.",
+      "category": "general"
+    },
+    {
+      "language": "en",
+      "key": "en-conversational-01",
+      "text": "Honestly? I had no idea it would take this long, but here we are.",
+      "category": "conversational"
+    },
+    {
+      "language": "en",
+      "key": "en-conversational-02",
+      "text": "Wait, you actually drove all the way there just to pick up a coffee mug?",
+      "category": "conversational"
+    },
+    {
+      "language": "en",
+      "key": "en-news-01",
+      "text": "Officials confirmed on Tuesday that the bridge will reopen to traffic next month following repairs.",
+      "category": "news"
+    },
+    {
+      "language": "en",
+      "key": "en-news-02",
+      "text": "The central bank held interest rates steady, citing easing inflation and a resilient labor market.",
+      "category": "news"
+    },
+    {
+      "language": "en",
+      "key": "en-narration-01",
+      "text": "For a long time he had believed the lake was bottomless; only later did he learn it was barely twelve feet deep.",
+      "category": "narration"
+    },
+    {
+      "language": "en",
+      "key": "en-narration-02",
+      "text": "And so, with the lamps dimmed and the rain against the glass, the story finally began to make sense.",
+      "category": "narration"
+    },
+    {
+      "language": "en",
+      "key": "en-hard-01",
+      "text": "The squirrel scurried furiously through the rough thicket, rustling the brittle, frostbitten leaves.",
+      "category": "hard"
+    },
+    {
+      "language": "en",
+      "key": "en-hard-02",
+      "text": "Dr. Ng read the figures aloud: 1,204 units at $3.50, due by 03/14, re: the Q3 SKU-882 reorder.",
+      "category": "hard"
+    },
+    {
+      "language": "en",
+      "key": "en-gold-01",
+      "text": "This is a clear, clean reference recording used as an attention check.",
+      "category": "general",
+      "isGold": true
+    },
+
+    {
+      "language": "es",
+      "key": "es-general-01",
+      "text": "La luz de la mañana entró por las cortinas y despertó a toda la casa.",
+      "category": "general"
+    },
+    {
+      "language": "es",
+      "key": "es-general-02",
+      "text": "Tenía un pequeño huerto detrás de la cocina, sobre todo hierbas y una tozuda planta de tomate.",
+      "category": "general"
+    },
+    {
+      "language": "es",
+      "key": "es-conversational-01",
+      "text": "¿En serio? No tenía ni idea de que tardaría tanto, pero aquí estamos.",
+      "category": "conversational"
+    },
+    {
+      "language": "es",
+      "key": "es-conversational-02",
+      "text": "Espera, ¿de verdad condujiste hasta allá solo para recoger una taza de café?",
+      "category": "conversational"
+    },
+    {
+      "language": "es",
+      "key": "es-news-01",
+      "text": "Las autoridades confirmaron el martes que el puente reabrirá al tráfico el próximo mes tras las reparaciones.",
+      "category": "news"
+    },
+    {
+      "language": "es",
+      "key": "es-news-02",
+      "text": "El banco central mantuvo las tasas de interés sin cambios, citando una inflación más moderada y un mercado laboral sólido.",
+      "category": "news"
+    },
+    {
+      "language": "es",
+      "key": "es-narration-01",
+      "text": "Durante mucho tiempo creyó que el lago no tenía fondo; solo después supo que apenas tenía cuatro metros de profundidad.",
+      "category": "narration"
+    },
+    {
+      "language": "es",
+      "key": "es-narration-02",
+      "text": "Y así, con las lámparas atenuadas y la lluvia contra el cristal, la historia por fin empezó a cobrar sentido.",
+      "category": "narration"
+    },
+    {
+      "language": "es",
+      "key": "es-hard-01",
+      "text": "El erizo recorrió rápidamente el espeso matorral, crujiendo las hojas quebradizas y heladas.",
+      "category": "hard"
+    },
+    {
+      "language": "es",
+      "key": "es-hard-02",
+      "text": "El Dr. Ñañez leyó las cifras en voz alta: 1.204 unidades a 3,50 €, para el 14/03, sobre el pedido SKU-882 del tercer trimestre.",
+      "category": "hard"
+    },
+    {
+      "language": "es",
+      "key": "es-gold-01",
+      "text": "Esta es una grabación de referencia clara y limpia usada como control de atención.",
+      "category": "general",
+      "isGold": true
+    }
+  ]
+}
