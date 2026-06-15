@@ -26,6 +26,26 @@ The competitor unit is a **system** = provider + model + optional voice (e.g.
 `ElevenLabs / eleven_multilingual_v2 / Rachel`). A leaderboard is computed
 per language.
 
+## Deployed
+
+The live arena runs on **Vercel** (Next.js app + API + cron), with audio in a
+**public GCS bucket**. The Cloud Run path in [Deploy to GCP](#deploy-to-gcp)
+below is the all-GCP alternative, not the current host.
+
+| Piece | Where |
+|-------|-------|
+| Source | [`SpekoAI/tts-arena`](https://github.com/SpekoAI/tts-arena) — `main` auto-deploys to Vercel |
+| App | Vercel team `speko`, project `tts-arena` — **https://tts-arena-plum.vercel.app** |
+| Audio | GCP project `speko-tts-arena` (billing: *Speko startup credits*), public bucket `gs://speko-tts-arena-audio` → `https://storage.googleapis.com/speko-tts-arena-audio` |
+| Status | `DEMO_MODE=1` — local macOS-voice clips + illustrative leaderboard, no database yet |
+
+**To go live for real:** provision a Neon database, set `DATABASE_URL` (and the
+already-set `GCS_PUBLIC_BASE_URL`) on Vercel, remove `DEMO_MODE`, then seed
+(synthesize each provider's *native* voice → loudness-normalize → upload to the
+bucket → `scripts/seed.ts`). Bradley-Terry recompute moves to **Vercel Cron**
+hitting `/api/cron/bt` — note the route's `x-cron-secret` check needs swapping
+for Vercel Cron's `Authorization: Bearer $CRON_SECRET` convention at that point.
+
 ## Local dev
 
 Use **bun** / **bunx** only — never npm/npx.
