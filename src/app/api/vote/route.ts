@@ -27,6 +27,7 @@ import {
 } from "@/lib/anti-gaming";
 import { ensureAnonId, readLang } from "@/lib/cookies";
 import { DEMO_MODE, demoReveal } from "@/lib/demo";
+import { realReveal } from "@/lib/samples";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -41,11 +42,17 @@ export async function POST(request: Request): Promise<NextResponse> {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
 
-  if (DEMO_MODE) {
-    const result: VoteResult = {
-      ok: true,
-      reveal: demoReveal(String(input?.pairId ?? "")),
-    };
+  const pairIdStr = String(input?.pairId ?? "");
+  // Real synthesized pairs + demo both reveal without DB persistence (vote
+  // storage + BT scoring land with the Neon database).
+  if (pairIdStr.startsWith("real:") || DEMO_MODE) {
+    const picked = VALID_VERDICTS.has(input?.verdict)
+      ? (input.verdict as Verdict)
+      : undefined;
+    const reveal = pairIdStr.startsWith("real:")
+      ? realReveal(pairIdStr, picked)
+      : demoReveal(pairIdStr, picked);
+    const result: VoteResult = { ok: true, reveal };
     return NextResponse.json(result, {
       headers: { "Cache-Control": "no-store" },
     });

@@ -1,0 +1,276 @@
+{
+  "fetchedAt": "2026-06-18T11:25:24.225Z",
+  "prompts": [
+    {
+      "key": "en-general-01",
+      "text": "The morning light slipped through the curtains and woke the whole house.",
+      "category": "general"
+    },
+    {
+      "key": "en-general-02",
+      "text": "She kept a small garden behind the kitchen, mostly herbs and one stubborn tomato plant.",
+      "category": "general"
+    },
+    {
+      "key": "en-conversational-01",
+      "text": "Honestly? I had no idea it would take this long, but here we are.",
+      "category": "conversational"
+    }
+  ],
+  "systems": [
+    {
+      "systemId": "xai-tts",
+      "vendor": "xAI Grok Text-to-Speech",
+      "model": "tts",
+      "voice": "eve"
+    },
+    {
+      "systemId": "elevenlabs",
+      "vendor": "ElevenLabs",
+      "model": "eleven_flash_v2_5",
+      "voice": ""
+    },
+    {
+      "systemId": "cartesia",
+      "vendor": "Cartesia",
+      "model": "sonic-3.5",
+      "voice": "f786b574-daa5-4673-aa0c-cbe3e8534c02"
+    },
+    {
+      "systemId": "openai-tts",
+      "vendor": "OpenAI Speech",
+      "model": "gpt-4o-mini-tts",
+      "voice": "alloy"
+    },
+    {
+      "systemId": "inworld",
+      "vendor": "Inworld TTS",
+      "model": "inworld-tts-1-max",
+      "voice": "Ashley"
+    },
+    {
+      "systemId": "alibaba-tts",
+      "vendor": "Alibaba Qwen-TTS",
+      "model": "qwen3-tts-flash",
+      "voice": "Cherry"
+    },
+    {
+      "systemId": "rime-tts",
+      "vendor": "Rime",
+      "model": "coda",
+      "voice": "astra"
+    },
+    {
+      "systemId": "hume-tts",
+      "vendor": "Hume Octave",
+      "model": "octave-2",
+      "voice": "Colton Rivers"
+    },
+    {
+      "systemId": "gradium",
+      "vendor": "Gradium Text-to-Speech",
+      "model": "default",
+      "voice": "YTpq7expH9539ERJ"
+    },
+    {
+      "systemId": "deepgram-tts",
+      "vendor": "Deepgram Aura 2",
+      "model": "aura-2",
+      "voice": "aura-2-thalia-en"
+    },
+    {
+      "systemId": "minimax-tts",
+      "vendor": "MiniMax Speech",
+      "model": "speech-2.6-hd",
+      "voice": "English_Graceful_Lady"
+    },
+    {
+      "systemId": "polly-tts",
+      "vendor": "AWS Polly (Generative)",
+      "model": "generative",
+      "voice": "Ruth"
+    }
+  ],
+  "samples": [
+    {
+      "systemId": "xai-tts",
+      "promptKey": "en-general-01",
+      "url": "/samples/xai-tts/en-general-01.wav"
+    },
+    {
+      "systemId": "xai-tts",
+      "promptKey": "en-general-02",
+      "url": "/samples/xai-tts/en-general-02.wav"
+    },
+    {
+      "systemId": "xai-tts",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/xai-tts/en-conversational-01.wav"
+    },
+    {
+      "systemId": "elevenlabs",
+      "promptKey": "en-general-01",
+      "url": "/samples/elevenlabs/en-general-01.wav"
+    },
+    {
+      "systemId": "elevenlabs",
+      "promptKey": "en-general-02",
+      "url": "/samples/elevenlabs/en-general-02.wav"
+    },
+    {
+      "systemId": "elevenlabs",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/elevenlabs/en-conversational-01.wav"
+    },
+    {
+      "systemId": "cartesia",
+      "promptKey": "en-general-01",
+      "url": "/samples/cartesia/en-general-01.wav"
+    },
+    {
+      "systemId": "cartesia",
+      "promptKey": "en-general-02",
+      "url": "/samples/cartesia/en-general-02.wav"
+    },
+    {
+      "systemId": "cartesia",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/cartesia/en-conversational-01.wav"
+    },
+    {
+      "systemId": "openai-tts",
+      "promptKey": "en-general-01",
+      "url": "/samples/openai-tts/en-general-01.wav"
+    },
+    {
+      "systemId": "openai-tts",
+      "promptKey": "en-general-02",
+      "url": "/samples/openai-tts/en-general-02.wav"
+    },
+    {
+      "systemId": "openai-tts",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/openai-tts/en-conversational-01.wav"
+    },
+    {
+      "systemId": "inworld",
+      "promptKey": "en-general-01",
+      "url": "/samples/inworld/en-general-01.wav"
+    },
+    {
+      "systemId": "inworld",
+      "promptKey": "en-general-02",
+      "url": "/samples/inworld/en-general-02.wav"
+    },
+    {
+      "systemId": "inworld",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/inworld/en-conversational-01.wav"
+    },
+    {
+      "systemId": "alibaba-tts",
+      "promptKey": "en-general-01",
+      "url": "/samples/alibaba-tts/en-general-01.wav"
+    },
+    {
+      "systemId": "alibaba-tts",
+      "promptKey": "en-general-02",
+      "url": "/samples/alibaba-tts/en-general-02.wav"
+    },
+    {
+      "systemId": "alibaba-tts",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/alibaba-tts/en-conversational-01.wav"
+    },
+    {
+      "systemId": "rime-tts",
+      "promptKey": "en-general-01",
+      "url": "/samples/rime-tts/en-general-01.wav"
+    },
+    {
+      "systemId": "rime-tts",
+      "promptKey": "en-general-02",
+      "url": "/samples/rime-tts/en-general-02.wav"
+    },
+    {
+      "systemId": "rime-tts",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/rime-tts/en-conversational-01.wav"
+    },
+    {
+      "systemId": "hume-tts",
+      "promptKey": "en-general-01",
+      "url": "/samples/hume-tts/en-general-01.wav"
+    },
+    {
+      "systemId": "hume-tts",
+      "promptKey": "en-general-02",
+      "url": "/samples/hume-tts/en-general-02.wav"
+    },
+    {
+      "systemId": "hume-tts",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/hume-tts/en-conversational-01.wav"
+    },
+    {
+      "systemId": "gradium",
+      "promptKey": "en-general-01",
+      "url": "/samples/gradium/en-general-01.wav"
+    },
+    {
+      "systemId": "gradium",
+      "promptKey": "en-general-02",
+      "url": "/samples/gradium/en-general-02.wav"
+    },
+    {
+      "systemId": "gradium",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/gradium/en-conversational-01.wav"
+    },
+    {
+      "systemId": "deepgram-tts",
+      "promptKey": "en-general-01",
+      "url": "/samples/deepgram-tts/en-general-01.wav"
+    },
+    {
+      "systemId": "deepgram-tts",
+      "promptKey": "en-general-02",
+      "url": "/samples/deepgram-tts/en-general-02.wav"
+    },
+    {
+      "systemId": "deepgram-tts",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/deepgram-tts/en-conversational-01.wav"
+    },
+    {
+      "systemId": "minimax-tts",
+      "promptKey": "en-general-01",
+      "url": "/samples/minimax-tts/en-general-01.wav"
+    },
+    {
+      "systemId": "minimax-tts",
+      "promptKey": "en-general-02",
+      "url": "/samples/minimax-tts/en-general-02.wav"
+    },
+    {
+      "systemId": "minimax-tts",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/minimax-tts/en-conversational-01.wav"
+    },
+    {
+      "systemId": "polly-tts",
+      "promptKey": "en-general-01",
+      "url": "/samples/polly-tts/en-general-01.wav"
+    },
+    {
+      "systemId": "polly-tts",
+      "promptKey": "en-general-02",
+      "url": "/samples/polly-tts/en-general-02.wav"
+    },
+    {
+      "systemId": "polly-tts",
+      "promptKey": "en-conversational-01",
+      "url": "/samples/polly-tts/en-conversational-01.wav"
+    }
+  ]
+}
