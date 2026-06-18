@@ -1,156 +1,63 @@
-import { cookies, headers } from "next/headers";
 import Link from "next/link";
-import CIBar from "@/components/CIBar";
-import { getLang, LANGUAGES, type LeaderboardRow } from "@/lib/types";
-import LangSwitcher from "./LangSwitcher";
+import Icon from "@/components/Icon";
+import LeaderboardView from "@/components/LeaderboardView";
+import { getLeaderboardRows } from "@/lib/server-data";
+import { DEFAULT_LANG } from "@/lib/types";
 
-/** Always fetch fresh — rankings move as votes land. */
 export const dynamic = "force-dynamic";
 
-/** Resolve the language: explicit ?lang= wins, then the cookie, then English. */
-async function resolveLang(searchLang: string | undefined): Promise<string> {
-  if (searchLang && getLang(searchLang)) return searchLang;
-  const store = await cookies();
-  const cookieLang = store.get("lang")?.value;
-  if (cookieLang && getLang(cookieLang)) return cookieLang;
-  return "en";
-}
-
-/** Build an absolute origin for the server-side API fetch. */
-async function origin(): Promise<string> {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
-}
-
-async function fetchRows(lang: string): Promise<LeaderboardRow[]> {
-  try {
-    const base = await origin();
-    const res = await fetch(
-      `${base}/api/leaderboard?lang=${encodeURIComponent(lang)}`,
-      { cache: "no-store" },
-    );
-    if (!res.ok) return [];
-    return (await res.json()) as LeaderboardRow[];
-  } catch {
-    return [];
-  }
-}
-
-export default async function LeaderboardPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ lang?: string }>;
-}) {
-  const { lang: searchLang } = await searchParams;
-  const lang = await resolveLang(searchLang);
-  const langMeta = getLang(lang);
-  const rows = await fetchRows(lang);
-
-  // Shared score axis across every bar so the column reads as a forest plot.
-  let domainMin = Infinity;
-  let domainMax = -Infinity;
-  for (const r of rows) {
-    domainMin = Math.min(domainMin, r.btLo);
-    domainMax = Math.max(domainMax, r.btHi);
-  }
-  if (!Number.isFinite(domainMin) || !Number.isFinite(domainMax)) {
-    domainMin = 1300;
-    domainMax = 1700;
-  }
-  // Small pad so end ticks aren't clipped against the track edges.
-  const pad = (domainMax - domainMin) * 0.05 || 20;
-  domainMin -= pad;
-  domainMax += pad;
+export default async function LeaderboardPage() {
+  const rows = await getLeaderboardRows(DEFAULT_LANG);
 
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">Leaderboard</h1>
-          <p className="mt-1 text-sm text-neutral-400">
-            Bradley-Terry ranking from blind votes · 95% bootstrap intervals
-          </p>
-        </div>
-        <LangSwitcher current={lang} languages={LANGUAGES} />
-      </div>
+    <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+      <p className="label">Leaderboard · English</p>
+      <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+        Which AI voices sound most human
+      </h1>
+      <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
+        Ranked by blind A/B votes with a Bradley-Terry model, measured against a
+        real human baseline. Switch the subgroup to see who wins each kind of
+        speech — most leaderboards only show one number.
+      </p>
+      <Link
+        href="/methodology"
+        className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-hover"
+      >
+        Read the methodology &amp; get the full 2026 report{" "}
+        <Icon name="arrow-right" />
+      </Link>
 
       {rows.length === 0 ? (
-        <div className="mt-10 rounded-2xl border border-neutral-800 bg-neutral-900 p-8 text-center">
-          <p className="text-neutral-300">
-            No rankings yet for{" "}
-            {langMeta ? `${langMeta.flag} ${langMeta.nativeName}` : lang}.
-          </p>
-          <p className="mt-2 text-sm text-neutral-500">
+        <div className="card mt-8 p-10 text-center">
+          <p className="text-ink">No rankings yet.</p>
+          <p className="mt-2 text-sm text-ink-muted">
             Votes are still being collected.{" "}
-            <Link href="/vote" className="text-accent hover:text-accent-hover">
+            <Link href="/#arena" className="font-semibold text-accent hover:text-accent-hover">
               Cast some →
             </Link>
           </p>
         </div>
       ) : (
-        <div className="mt-6 overflow-hidden rounded-2xl border border-neutral-800">
-          <table className="w-full border-collapse text-sm">
-            <thead>
-              <tr className="border-b border-neutral-800 bg-neutral-900 text-left text-xs uppercase tracking-wide text-neutral-500">
-                <th className="px-3 py-2.5 font-medium">#</th>
-                <th className="px-3 py-2.5 font-medium">System</th>
-                <th className="hidden px-3 py-2.5 text-right font-medium sm:table-cell">
-                  Score
-                </th>
-                <th className="w-1/3 px-3 py-2.5 font-medium">95% CI</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r, i) => (
-                <tr
-                  key={r.systemId}
-                  className={`border-b border-neutral-900 last:border-0 ${r.isProvisional ? "opacity-50" : ""}`}
-                >
-                  <td className="px-3 py-3 align-middle tabular-nums text-neutral-400">
-                    {r.rank ?? i + 1}
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <div className="font-medium text-neutral-100">
-                      {r.vendor} {r.modelName}
-                    </div>
-                    <div className="text-xs text-neutral-500">
-                      {r.voiceLabel ? `${r.voiceLabel} · ` : ""}
-                      {r.voteCount.toLocaleString()} votes
-                      {r.isProvisional && (
-                        <span className="ml-2 rounded bg-neutral-800 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-neutral-400">
-                          provisional
-                        </span>
-                      )}
-                    </div>
-                  </td>
-                  <td className="hidden px-3 py-3 text-right align-middle tabular-nums text-neutral-100 sm:table-cell">
-                    {r.btScore.toFixed(0)}
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <CIBar
-                      score={r.btScore}
-                      lo={r.btLo}
-                      hi={r.btHi}
-                      domainMin={domainMin}
-                      domainMax={domainMax}
-                      muted={r.isProvisional}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <LeaderboardView rows={rows} />
       )}
 
-      <p className="mt-6 text-xs text-neutral-600">
-        Provisional rows have fewer than 250 votes and aren&apos;t ranked yet.{" "}
-        <Link href="/vote" className="text-accent hover:text-accent-hover">
-          Keep voting →
+      <div className="mt-14 flex flex-wrap items-center justify-between gap-4 rounded-4xl bg-ink px-8 py-10">
+        <div>
+          <h2 className="text-xl font-bold text-white sm:text-2xl">
+            Help decide the ranking
+          </h2>
+          <p className="mt-1 text-[15px] text-white/60">
+            Every blind vote sharpens these numbers.
+          </p>
+        </div>
+        <Link
+          href="/#arena"
+          className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
+        >
+          Play a round <Icon name="arrow-right" />
         </Link>
-      </p>
+      </div>
     </div>
   );
 }

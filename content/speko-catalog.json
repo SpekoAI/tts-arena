@@ -1,0 +1,944 @@
+{
+  "fetchedAt": "2026-06-18T11:18:45.207Z",
+  "providers": [
+    {
+      "key": "xai-tts",
+      "name": "xAI Grok Text-to-Speech",
+      "models": [
+        {
+          "id": "tts",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "elevenlabs",
+      "name": "ElevenLabs",
+      "models": [
+        {
+          "id": "eleven_v3",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "eleven_flash_v2_5",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "eleven_turbo_v2_5",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "eleven_multilingual_v2",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "cartesia",
+      "name": "Cartesia",
+      "models": [
+        {
+          "id": "sonic-3.5",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "sonic-3.5-2026-05-04",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "sonic-3",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "sonic-2",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "sonic-turbo",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "openai-tts",
+      "name": "OpenAI Speech",
+      "models": [
+        {
+          "id": "gpt-4o-mini-tts",
+          "capabilities": {
+            "acceptsInstructions": true,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "tts-1",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "tts-1-hd",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "inworld",
+      "name": "Inworld TTS",
+      "models": [
+        {
+          "id": "inworld-tts-2",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "inworld-tts-1.5-max",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "inworld-tts-1.5-mini",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "inworld-tts-1-max",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "inworld-tts-1",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "alibaba-tts",
+      "name": "Alibaba Qwen-TTS",
+      "models": [
+        {
+          "id": "qwen3-tts-flash",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "qwen-tts",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "qwen3-tts-instruct-flash",
+          "capabilities": {
+            "acceptsInstructions": true,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "rime-tts",
+      "name": "Rime",
+      "models": [
+        {
+          "id": "coda",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "mistv3",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "arcanav3",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "mistv2",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "arcanav2",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "hume-tts",
+      "name": "Hume Octave",
+      "models": [
+        {
+          "id": "octave-2",
+          "capabilities": {
+            "acceptsInstructions": true,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "octave-1",
+          "capabilities": {
+            "acceptsInstructions": true,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "google-tts",
+      "name": "Google Gemini TTS",
+      "models": [
+        {
+          "id": "gemini-3.1-flash-tts-preview",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "google-chirp-tts",
+      "name": "Google Chirp 3 HD",
+      "models": [
+        {
+          "id": "chirp-3-hd",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "gradium",
+      "name": "Gradium Text-to-Speech",
+      "models": [
+        {
+          "id": "default",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "deepgram-tts",
+      "name": "Deepgram Aura 2",
+      "models": [
+        {
+          "id": "aura-2",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": true,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "minimax-tts",
+      "name": "MiniMax Speech",
+      "models": [
+        {
+          "id": "speech-2.6-hd",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "speech-2.6-turbo",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "speech-02-hd",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        },
+        {
+          "id": "speech-02-turbo",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": true,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "polly-tts",
+      "name": "AWS Polly (Generative)",
+      "models": [
+        {
+          "id": "generative",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": true,
+            "nativeMulaw8k": false,
+            "openSource": false,
+            "license": "proprietary",
+            "weightsAvailable": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "miso-tts",
+      "name": "MisoTTS (Speko-hosted)",
+      "models": [
+        {
+          "id": "miso-tts-8b",
+          "capabilities": {
+            "acceptsInstructions": false,
+            "supportsInlineTags": false,
+            "supportsSSML": false,
+            "nativeMulaw8k": false,
+            "openSource": true,
+            "license": "unknown",
+            "weightsAvailable": true
+          }
+        }
+      ]
+    }
+  ],
+  "voices": [
+    {
+      "vendor": "openai",
+      "id": "alloy",
+      "name": "Alloy (neutral)"
+    },
+    {
+      "vendor": "openai",
+      "id": "echo",
+      "name": "Echo (calm male)"
+    },
+    {
+      "vendor": "openai",
+      "id": "fable",
+      "name": "Fable (warm narrator)"
+    },
+    {
+      "vendor": "openai",
+      "id": "onyx",
+      "name": "Onyx (deep male)"
+    },
+    {
+      "vendor": "openai",
+      "id": "nova",
+      "name": "Nova (bright female)"
+    },
+    {
+      "vendor": "openai",
+      "id": "shimmer",
+      "name": "Shimmer (soft female)"
+    },
+    {
+      "vendor": "cartesia",
+      "id": "f786b574-daa5-4673-aa0c-cbe3e8534c02",
+      "name": "Katie (American female)"
+    },
+    {
+      "vendor": "cartesia",
+      "id": "a5136bf9-224c-4d76-b823-52bd5efcffcc",
+      "name": "Jameson (American male)"
+    },
+    {
+      "vendor": "cartesia",
+      "id": "a167e0f3-df7e-4d52-a9c3-f949145efdab",
+      "name": "Blake (energetic American male)"
+    },
+    {
+      "vendor": "cartesia",
+      "id": "9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
+      "name": "Jacqueline (confident American female)"
+    },
+    {
+      "vendor": "cartesia",
+      "id": "f31cc6a7-c1e8-4764-980c-60a361443dd1",
+      "name": "Robyn (mature Australian female)"
+    },
+    {
+      "vendor": "cartesia",
+      "id": "5c5ad5e7-1020-476b-8b91-fdcbe9cc313c",
+      "name": "Daniela (calm Mexican female)"
+    },
+    {
+      "vendor": "xai",
+      "id": "eve",
+      "name": "Eve (upbeat, demos)"
+    },
+    {
+      "vendor": "xai",
+      "id": "ara",
+      "name": "Ara (warm, conversational)"
+    },
+    {
+      "vendor": "xai",
+      "id": "leo",
+      "name": "Leo (authoritative narration)"
+    },
+    {
+      "vendor": "xai",
+      "id": "rex",
+      "name": "Rex (corporate, presentations)"
+    },
+    {
+      "vendor": "xai",
+      "id": "sal",
+      "name": "Sal (versatile, balanced)"
+    },
+    {
+      "vendor": "inworld",
+      "id": "Ashley",
+      "name": "Ashley (warm American female)"
+    },
+    {
+      "vendor": "inworld",
+      "id": "Edward",
+      "name": "Edward (emphatic American male)"
+    },
+    {
+      "vendor": "inworld",
+      "id": "Olivia",
+      "name": "Olivia (upbeat British female)"
+    },
+    {
+      "vendor": "inworld",
+      "id": "Diego",
+      "name": "Diego (gentle Mexican male)"
+    },
+    {
+      "vendor": "inworld",
+      "id": "Sarah",
+      "name": "Sarah (curious young female)"
+    },
+    {
+      "vendor": "alibaba",
+      "id": "Cherry",
+      "name": "Cherry (default female, multilingual)"
+    },
+    {
+      "vendor": "alibaba",
+      "id": "Ethan",
+      "name": "Ethan (warm male, multilingual)"
+    },
+    {
+      "vendor": "alibaba",
+      "id": "Serena",
+      "name": "Serena (calm female, multilingual)"
+    },
+    {
+      "vendor": "alibaba",
+      "id": "Chelsie",
+      "name": "Chelsie (bright female, multilingual)"
+    },
+    {
+      "vendor": "google",
+      "id": "Aoede",
+      "name": "Aoede (calm narrator, default)"
+    },
+    {
+      "vendor": "google",
+      "id": "Kore",
+      "name": "Kore (warm female)"
+    },
+    {
+      "vendor": "google",
+      "id": "Charon",
+      "name": "Charon (deep male)"
+    },
+    {
+      "vendor": "google",
+      "id": "Puck",
+      "name": "Puck (expressive male)"
+    },
+    {
+      "vendor": "google",
+      "id": "Zephyr",
+      "name": "Zephyr (bright female)"
+    },
+    {
+      "vendor": "google-chirp",
+      "id": "en-US-Chirp3-HD-Charon",
+      "name": "Charon (deep male, default)"
+    },
+    {
+      "vendor": "google-chirp",
+      "id": "en-US-Chirp3-HD-Aoede",
+      "name": "Aoede (breezy female)"
+    },
+    {
+      "vendor": "google-chirp",
+      "id": "en-US-Chirp3-HD-Kore",
+      "name": "Kore (firm female)"
+    },
+    {
+      "vendor": "google-chirp",
+      "id": "en-US-Chirp3-HD-Puck",
+      "name": "Puck (upbeat male)"
+    },
+    {
+      "vendor": "google-chirp",
+      "id": "en-US-Chirp3-HD-Leda",
+      "name": "Leda (youthful female)"
+    },
+    {
+      "vendor": "google-chirp",
+      "id": "en-US-Chirp3-HD-Fenrir",
+      "name": "Fenrir (excitable male)"
+    },
+    {
+      "vendor": "rime",
+      "id": "astra",
+      "name": "Astra (bright Californian female)"
+    },
+    {
+      "vendor": "rime",
+      "id": "luna",
+      "name": "Luna (energetic casual female)"
+    },
+    {
+      "vendor": "rime",
+      "id": "cove",
+      "name": "Cove (young adult female)"
+    },
+    {
+      "vendor": "rime",
+      "id": "lintel",
+      "name": "Lintel (warm American)"
+    },
+    {
+      "vendor": "rime",
+      "id": "eyre",
+      "name": "Eyre (calm friendly American)"
+    },
+    {
+      "vendor": "rime",
+      "id": "beatty",
+      "name": "Beatty (easygoing American male)"
+    },
+    {
+      "vendor": "rime",
+      "id": "walnut",
+      "name": "Walnut (confident Southern)"
+    },
+    {
+      "vendor": "hume",
+      "id": "Colton Rivers",
+      "name": "Colton Rivers (calm, serene)"
+    },
+    {
+      "vendor": "hume",
+      "id": "narrator",
+      "name": "Narrator (neutral storyteller)"
+    },
+    {
+      "vendor": "gradium",
+      "id": "YTpq7expH9539ERJ",
+      "name": "Emma (smooth American female)"
+    },
+    {
+      "vendor": "gradium",
+      "id": "LFZvm12tW_z0xfGo",
+      "name": "Kent (relaxed American male)"
+    },
+    {
+      "vendor": "gradium",
+      "id": "jtEKaLYNn6iif5PR",
+      "name": "Sydney (airy American female)"
+    },
+    {
+      "vendor": "gradium",
+      "id": "KWJiFWu2O9nMPYcR",
+      "name": "John (warm American male)"
+    },
+    {
+      "vendor": "gradium",
+      "id": "ubuXFxVQwVYnZQhy",
+      "name": "Eva (dynamic British female)"
+    },
+    {
+      "vendor": "gradium",
+      "id": "m86j6D7UZpGzHsNu",
+      "name": "Jack (pleasant British male)"
+    },
+    {
+      "vendor": "deepgram",
+      "id": "aura-2-thalia-en",
+      "name": "Thalia (clear American female)"
+    },
+    {
+      "vendor": "deepgram",
+      "id": "aura-2-andromeda-en",
+      "name": "Andromeda (casual American female)"
+    },
+    {
+      "vendor": "deepgram",
+      "id": "aura-2-asteria-en",
+      "name": "Asteria (expressive American female)"
+    },
+    {
+      "vendor": "deepgram",
+      "id": "aura-2-orion-en",
+      "name": "Orion (approachable American male)"
+    },
+    {
+      "vendor": "deepgram",
+      "id": "aura-2-zeus-en",
+      "name": "Zeus (authoritative American male)"
+    },
+    {
+      "vendor": "minimax",
+      "id": "English_Graceful_Lady",
+      "name": "Graceful Lady (female)"
+    },
+    {
+      "vendor": "minimax",
+      "id": "English_radiant_girl",
+      "name": "Radiant Girl (female)"
+    },
+    {
+      "vendor": "minimax",
+      "id": "English_Persuasive_Man",
+      "name": "Persuasive Man (male)"
+    },
+    {
+      "vendor": "minimax",
+      "id": "English_Insightful_Speaker",
+      "name": "Insightful Speaker (male)"
+    },
+    {
+      "vendor": "polly",
+      "id": "Ruth",
+      "name": "Ruth (en-US female)"
+    },
+    {
+      "vendor": "polly",
+      "id": "Joanna",
+      "name": "Joanna (en-US female)"
+    },
+    {
+      "vendor": "polly",
+      "id": "Danielle",
+      "name": "Danielle (en-US female)"
+    },
+    {
+      "vendor": "polly",
+      "id": "Matthew",
+      "name": "Matthew (en-US male)"
+    },
+    {
+      "vendor": "polly",
+      "id": "Stephen",
+      "name": "Stephen (en-US male)"
+    },
+    {
+      "vendor": "polly",
+      "id": "Amy",
+      "name": "Amy (en-GB female)"
+    },
+    {
+      "vendor": "azure",
+      "id": "en-US-Ava:DragonHDLatestNeural",
+      "name": "Ava (Dragon HD)"
+    },
+    {
+      "vendor": "azure",
+      "id": "en-US-Andrew:DragonHDLatestNeural",
+      "name": "Andrew (Dragon HD)"
+    },
+    {
+      "vendor": "azure",
+      "id": "en-US-AvaMultilingualNeural",
+      "name": "Ava Multilingual (Neural)"
+    },
+    {
+      "vendor": "azure",
+      "id": "en-US-Harper:MAI-Voice-2",
+      "name": "Harper (MAI-Voice-2, US female)",
+      "gender": "female"
+    },
+    {
+      "vendor": "azure",
+      "id": "en-US-Ethan:MAI-Voice-2",
+      "name": "Ethan (MAI-Voice-2, US male)",
+      "gender": "male"
+    },
+    {
+      "vendor": "azure",
+      "id": "en-US-Olivia:MAI-Voice-2",
+      "name": "Olivia (MAI-Voice-2, US female)",
+      "gender": "female"
+    },
+    {
+      "vendor": "azure",
+      "id": "en-AU-Lisa:MAI-Voice-2",
+      "name": "Lisa (MAI-Voice-2, Australian female)",
+      "gender": "female"
+    },
+    {
+      "vendor": "azure",
+      "id": "es-MX-Valeria:MAI-Voice-2",
+      "name": "Valeria (MAI-Voice-2, Mexican Spanish female)",
+      "gender": "female"
+    },
+    {
+      "vendor": "azure",
+      "id": "fr-FR-Soleil:MAI-Voice-2",
+      "name": "Soleil (MAI-Voice-2, French female)",
+      "gender": "female"
+    },
+    {
+      "vendor": "miso",
+      "id": "default",
+      "name": "Default (MisoTTS)"
+    }
+  ]
+}

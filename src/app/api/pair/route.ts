@@ -18,6 +18,7 @@ import { db } from "@/lib/db/client";
 import { pairs, samples, goldPairs, prompts } from "@/lib/db/schema";
 import { getLang, type PairResponse } from "@/lib/types";
 import { DEMO_MODE, demoPair } from "@/lib/demo";
+import { hasRealSamples, realPair } from "@/lib/samples";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -34,6 +35,13 @@ export async function GET(request: Request): Promise<NextResponse> {
       { error: "unknown_or_missing_language" },
       { status: 400 },
     );
+  }
+
+  // Real synthesized clips win when present — that's the genuine comparison.
+  if (hasRealSamples()) {
+    return NextResponse.json(realPair(lang), {
+      headers: { "Cache-Control": "no-store" },
+    });
   }
 
   if (DEMO_MODE) {
