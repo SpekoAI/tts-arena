@@ -94,10 +94,14 @@ export default function MethodologyPage() {
 
           <Section title="Fair by construction">
             <p>
-              All clips are loudness-normalized to a common target before they
-              are served — louder audio is reliably judged &ldquo;better,&rdquo;
-              and we remove that confound. The same prompt is used for both sides
-              of a pair, so it&apos;s voice-vs-voice, never script-vs-script.
+              Both sides of a pair read the same prompt, and which side is shown
+              left/right is randomized — so the comparison is voice-vs-voice,
+              never script-vs-script or position-vs-position.
+            </p>
+            <p>
+              Loudness normalization to a common LUFS target is on the roadmap:
+              louder audio is reliably judged &ldquo;better,&rdquo; so equalizing
+              it removes a known confound before it can skew the ranking.
             </p>
           </Section>
 

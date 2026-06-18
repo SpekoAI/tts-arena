@@ -340,7 +340,7 @@ export default function VotingArena({ lang = "en" }: { lang?: string }) {
                 type="button"
                 onClick={() => (playing === slot ? audioRefs.current[slot]?.pause() : play(slot))}
                 disabled={phase === "loading"}
-                className={`group relative grid h-[168px] w-[168px] place-items-center rounded-full transition-transform active:scale-95 ${
+                className={`group relative grid aspect-square w-full max-w-[168px] place-items-center rounded-full transition-transform active:scale-95 ${
                   picked ? "ring-2 ring-accent ring-offset-4 ring-offset-card" : ""
                 }`}
                 aria-label={`Play voice ${slot === 0 ? "one" : "two"}`}

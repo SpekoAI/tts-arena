@@ -1,11 +1,11 @@
 /**
  * ProviderMark — a brand logo mark for each TTS provider.
  *
- * Renders the official glyph (bundled from simple-icons) where one exists, and
- * a brand-colored monogram everywhere else — OpenAI, Microsoft, Amazon and the
- * niche startups aren't in any open icon set. All marks sit on a brand-colored
- * chip so the set reads as one consistent system. To force a real logo, add its
- * path to brand-logos.ts (or swap this for an <img> from /public/logos).
+ * Resolves the brand from the vendor name *or* system id by substring (so
+ * "AWS Polly (Generative)", "xAI Grok Text-to-Speech", "Deepgram Aura 2" all
+ * map correctly). Renders the official glyph where one is bundled
+ * (brand-logos.ts), otherwise a brand-colored monogram — every provider gets a
+ * recognizable, consistent mark. The human reference is a gold star.
  */
 
 import Icon from "./Icon";
@@ -14,27 +14,53 @@ import { BRAND_LOGOS } from "@/lib/brand-logos";
 type Brand = { bg: string; fg?: string; txt: string };
 
 const BRAND: Record<string, Brand> = {
-  openai: { bg: "#0F9D77", txt: "O" },
   elevenlabs: { bg: "#0B0C0E", txt: "11" },
-  hume: { bg: "#0EA5E9", txt: "H" },
+  openai: { bg: "#10A37F", txt: "O" },
   cartesia: { bg: "#6D28D9", txt: "C" },
-  minimax: { bg: "#E2342C", txt: "M" },
-  google: { bg: "#4285F4", txt: "G" },
-  playht: { bg: "#1A56DB", txt: "P" },
+  xai: { bg: "#0B0C0E", txt: "X" },
+  inworld: { bg: "#4F46E5", txt: "I" },
+  alibaba: { bg: "#FF6A00", fg: "#2A1400", txt: "Q" },
   rime: { bg: "#111827", txt: "R" },
-  microsoft: { bg: "#2563EB", txt: "Az" },
-  deepgram: { bg: "#0B0C0E", txt: "D" },
-  kokoro: { bg: "#DB2777", txt: "K" },
+  hume: { bg: "#0EA5E9", txt: "H" },
+  gradium: { bg: "#0D9488", txt: "G" },
+  deepgram: { bg: "#101820", txt: "D" },
+  minimax: { bg: "#E2342C", txt: "M" },
   amazon: { bg: "#FF9900", fg: "#1A1206", txt: "a" },
+  google: { bg: "#4285F4", txt: "G" },
+  microsoft: { bg: "#2563EB", txt: "Az" },
+  playht: { bg: "#1A56DB", txt: "P" },
+  kokoro: { bg: "#DB2777", txt: "K" },
   sesame: { bg: "#7C3AED", txt: "S" },
+  miso: { bg: "#0EA5E9", txt: "M" },
 };
 
-function keyFor(vendor: string): string {
-  return vendor.toLowerCase().replace(/[^a-z0-9]/g, "");
-}
+// First match wins; checked against the lowercased vendor name + id.
+const RULES: [RegExp, string][] = [
+  [/elevenlabs/, "elevenlabs"],
+  [/cartesia/, "cartesia"],
+  [/openai/, "openai"],
+  [/xai|grok/, "xai"],
+  [/inworld/, "inworld"],
+  [/alibaba|qwen/, "alibaba"],
+  [/rime/, "rime"],
+  [/hume/, "hume"],
+  [/gradium/, "gradium"],
+  [/deepgram/, "deepgram"],
+  [/minimax/, "minimax"],
+  [/polly|aws|amazon/, "amazon"],
+  [/google|gemini|chirp/, "google"],
+  [/microsoft|azure/, "microsoft"],
+  [/playht|play\s*ht/, "playht"],
+  [/kokoro/, "kokoro"],
+  [/sesame/, "sesame"],
+  [/miso/, "miso"],
+];
 
-function brandFor(vendor: string): Brand {
-  return BRAND[keyFor(vendor)] ?? { bg: "#475569", txt: vendor.slice(0, 1).toUpperCase() };
+function resolve(vendor: string): { brand: Brand; key: string } {
+  const s = vendor.toLowerCase();
+  for (const [re, key] of RULES) if (re.test(s)) return { brand: BRAND[key], key };
+  const initial = vendor.replace(/[^a-zA-Z0-9]/g, "").slice(0, 1).toUpperCase() || "•";
+  return { brand: { bg: "#475569", txt: initial }, key: "" };
 }
 
 export default function ProviderMark({
@@ -56,20 +82,20 @@ export default function ProviderMark({
     );
   }
 
-  const b = brandFor(vendor);
-  const logoPath = BRAND_LOGOS[keyFor(vendor)];
+  const { brand, key } = resolve(vendor);
+  const logoPath = BRAND_LOGOS[key];
 
   return (
     <span
       className={`grid shrink-0 place-items-center overflow-hidden rounded-md font-bold leading-none ${className}`}
-      style={{ background: b.bg, color: b.fg ?? "#ffffff" }}
+      style={{ background: brand.bg, color: brand.fg ?? "#ffffff" }}
     >
       {logoPath ? (
         <svg viewBox="0 0 24 24" fill="currentColor" className="h-[62%] w-[62%]" aria-hidden="true">
           <path d={logoPath} />
         </svg>
       ) : (
-        b.txt
+        brand.txt
       )}
     </span>
   );
